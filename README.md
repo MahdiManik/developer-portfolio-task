@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio
+
+A modern, responsive developer portfolio built with Next.js, TypeScript, Tailwind CSS, and Shadcn UI components. This portfolio showcases your skills, projects, work experience, and provides a contact form for potential clients or employers to reach out.
+
+![Developer Portfolio Screenshot](public/portfolio-screenshot.png)
+
+## Features
+
+- **Responsive Design**: Looks great on all devices from mobile to desktop
+- **Performance Optimized**: Implements list virtualization for large datasets
+- **Accessibility Focus**: ARIA attributes and keyboard navigation
+- **Error Boundaries**: Robust error handling with meaningful fallback UIs
+- **Modern Stack**: Built with Next.js 15, TypeScript, Tailwind CSS, and Shadcn UI
+- **Dark/Light Mode**: Supports theme switching with system preference detection
+- **Modular Architecture**: Clean separation of concerns for easy maintenance
+
+## Tech Stack
+
+### Frontend
+- **Framework**: Next.js 15.3.4
+- **Runtime**: Bun (Package Manager)
+- **Language**: TypeScript
+- **Styling**: TailwindCSS v3.4.17
+- **Components**: Shadcn UI with Radix UI primitives
+- **Icons**: Lucide React
+- **Toast Notifications**: React Toast
+
+### Backend & Data
+- **Development Database**: SQLite
+- **Production Database**: Supabase
+- **ORM**: Prisma
+- **API**: Next.js API Routes
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Bun (recommended) or Node.js 18+
+- Git
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/developer-portfolio.git
+   cd developer-portfolio
+   ```
+
+2. Install dependencies using Bun (preferred):
+   ```bash
+   bun install
+   ```
+   Or using npm:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env.local
+   ```
+   And update the values in `.env.local` with your own.
+
+4. Initialize the database:
+   ```bash
+   bun prisma migrate dev --name init
+   ```
+
+5. Run the development server:
+   ```bash
+   bun dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Building for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run build
+bun start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+├── src/
+│   ├── app/           # Next.js App Router files
+│   ├── components/    # React components
+│   │   ├── common/    # Shared components like ErrorBoundary
+│   │   ├── home/      # Home page section components
+│   │   │   └── sections/  # Individual portfolio sections
+│   │   └── ui/        # UI components, reusable primitives
+│   ├── lib/           # Utility functions and helpers
+│   ├── services/      # Data fetching and business logic
+│   ├── types/         # TypeScript type definitions
+│   └── styles/        # Global CSS and Tailwind directives
+├── prisma/           # Prisma schema and migrations
+├── public/           # Static assets
+└── tailwind.config.js # Tailwind CSS configuration
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
 
-## Learn More
+### Adding Your Own Projects
 
-To learn more about Next.js, take a look at the following resources:
+Update the `projectService.ts` file in the `src/services/` directory to include your own projects or connect to your own API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Modifying Styles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses Tailwind CSS. You can modify the theme in `tailwind.config.js`.
 
-## Deploy on Vercel
+## Limitations and Tradeoffs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Image Optimization**: Currently uses placeholder graphics; implement optimized images for production
+- **Form Handling**: Contact form submission needs to be connected to a backend service
+- **Authentication**: Does not include authentication for admin updates; consider adding if needed
+- **Testing**: Limited test coverage; expand for production use
+- **SEO**: Basic SEO implementation; enhance with more meta tags for production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Performance Considerations
+
+- The VirtualizedList component is used to handle large datasets efficiently
+- Code-splitting is implemented via Next.js page/component level splitting
+- Static generation is used for most pages to improve load time
+
+## Accessibility
+
+This project follows accessibility best practices including:
+
+- Proper heading hierarchy
+- ARIA attributes for interactive elements
+- Keyboard navigation support
+- Sufficient color contrast
+- Screen reader compatibility
+
+## License
+
+MIT
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org)
+- [TailwindCSS](https://tailwindcss.com)
+- [Shadcn UI](https://ui.shadcn.com)
+- [Radix UI](https://radix-ui.com)
+- [Lucide Icons](https://lucide.dev)
