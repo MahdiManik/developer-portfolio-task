@@ -2,6 +2,8 @@
 
 A modern, responsive developer portfolio built with Next.js, TypeScript, Tailwind CSS, and Shadcn UI components. This portfolio showcases your skills, projects, work experience, and provides a contact form for potential clients or employers to reach out.
 
+**Live Demo:** [https://developer-portfolio-task.vercel.app/](https://developer-portfolio-task.vercel.app/)
+
 ![Developer Portfolio Screenshot](public/portfolio-screenshot.png)
 
 ## Features
